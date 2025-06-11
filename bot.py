@@ -2,13 +2,19 @@ import asyncio
 import feedparser
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.helpers import escape_markdown
+from dotenv import load_dotenv
 from telegram import Bot
 import logging
 import json
 import os
 import re
 
-TOKEN = "7833087634:AAF-tZnKcWTujRKgVnTw4QrxsPEwuhoQfXY"
+
+# Cargar variables del archivo .env
+load_dotenv()
+
+# Obtener el token desde el entorno
+TOKEN = os.getenv("TOKEN")
 bot = Bot(token=TOKEN)
 
 feeds = {

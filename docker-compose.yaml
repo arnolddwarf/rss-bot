@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  rss-bot:
+    container_name: rss-bot
+    image: rss-bot
+    build: .
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    command: ["python", "bot.py"]
